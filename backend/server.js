@@ -24,12 +24,15 @@ app.get("/", (req, res) => {
 });
 
 // DB Sync
-sequelize.sync()
-.then(() => console.log("MySQL Connected"))
-.catch(err => console.log(err));
+// DB Sync + Start Server
+sequelize.sync({ alter: true })
+  .then(() => {
+    console.log("MySQL Connected");
 
-const PORT = process.env.PORT || 5000;
+    const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
+    });
+  })
+  .catch(err => console.log(err));
