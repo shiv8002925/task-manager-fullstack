@@ -21,9 +21,7 @@ export default function Signup() {
       navigate("/"); // go to login page
 
     }catch (err) {
-  console.log("FULL ERROR:", err);                 
-  console.log("RESPONSE:", err.response?.data);    
-
+  console.log("SIGNUP ERROR:", err.response?.data || err.message);
   alert(err.response?.data?.msg || "Signup failed");
 }
   };
