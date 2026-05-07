@@ -4,6 +4,9 @@ require("dotenv").config();
 
 
 const sequelize = require("./config/db");
+require("./models/User");
+require("./models/Project");
+require("./models/Task");
 
 // Load models
 require("./models");
