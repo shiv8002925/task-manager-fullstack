@@ -2,12 +2,13 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 
 const Task = sequelize.define("Task", {
-  title: DataTypes.STRING,
-  status: {
-    type: DataTypes.ENUM("pending", "done"),
-    defaultValue: "pending",
+  title: {
+    type: DataTypes.STRING,
   },
-  dueDate: DataTypes.DATE,
+  status: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+  },
 });
 
 module.exports = Task;
